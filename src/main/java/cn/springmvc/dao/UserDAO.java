@@ -12,5 +12,9 @@ public interface UserDAO {
 	 */
 	public int insertUser(User user);
 	
+	public void updateUser(User user);
+	
+	public User selectUser(int id);
+	
 	
 }

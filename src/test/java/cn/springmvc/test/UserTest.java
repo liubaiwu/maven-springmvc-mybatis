@@ -29,4 +29,18 @@ private UserService userService;
 		user.setState(2);
 		System.out.println(userService.insertUser(user));
 	}
+	@Test
+	public void selectUser(){
+		User user = userService.selectUser(2);
+		System.out.println(user.getId()+user.getNickname());
+	}
+	
+	@Test
+	public void updateUser(){
+		User user = userService.selectUser(2);
+		user.setNickname("222221111111");
+		userService.updateUser(user);
+		user = userService.selectUser(2);
+		System.out.println(user.getId()+user.getNickname());
+	}
 }
