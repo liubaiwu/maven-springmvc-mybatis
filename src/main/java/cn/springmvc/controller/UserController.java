@@ -3,7 +3,7 @@ package cn.springmvc.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-	//demo²âÊÔ
+	//demoæµ‹è¯•
 	@Controller
 	@RequestMapping("/")
 	public class UserController {
