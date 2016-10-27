@@ -75,10 +75,15 @@
    <!-- spring与mybatis整合配置，扫描所有dao -->
  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
         p:basePackage="cn.springmvc.dao" 
-        p:sqlSessionFactoryBeanName="sqlSessionFactory"/>
+        p:sqlSessionFactoryBeanName="sqlSessionFactory"
+        />
  
    <!-- 对数据源进行事务管理 -->
   <bean id="transactionManager" 
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
         p:dataSource-ref="dataSource"/>
+   
+  
+        
+  
 </beans>

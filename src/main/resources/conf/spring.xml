@@ -10,6 +10,23 @@
     <!-- 引入jdbc配置文件 -->
     <context:property-placeholder location="classpath:conf/jdbc.properties,classpath:conf/config.properties"/>
     
+    
+    <bean id="redisClusterHelper" class="cn.springmvc.common.RedisClusterHelper" scope="singleton">
+  	<property name="hostAndPort">
+  		<list>
+  			<value>192.168.2.201:7000</value>
+  			<value>192.168.2.201:7001</value>
+  			<value>192.168.2.201:7002</value>
+  			<value>192.168.2.201:7003</value>
+  			<value>192.168.2.201:7004</value>
+  			<value>192.168.2.201:7005</value>
+  		</list>
+  	</property>
+  </bean>
+    
     <!-- 扫描文件（自动将servicec层注入） -->
     <context:component-scan base-package="cn.springmvc.service"/>
+    <context:component-scan base-package="cn.springmvc.common"/>
+    
+    
 </beans>

@@ -3,9 +3,14 @@ package cn.springmvc.controller;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import cn.springmvc.common.ICacheManager;
+import cn.springmvc.common.RedisClusterCache;
+import cn.springmvc.model.User;
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.JedisCluster;
 
@@ -14,10 +19,14 @@ import redis.clients.jedis.JedisCluster;
 	@RequestMapping("/")
 	public class UserController {
 
+		@Autowired()
+		RedisClusterCache redisClusterCache;
+		
+		
 		@RequestMapping("index.do")
 		public String index(){
 			
-			
+			/*
 			Set<HostAndPort> jedisClusterNodes = new HashSet<HostAndPort>();  
 	        
 	        jedisClusterNodes.add(new HostAndPort("192.168.2.201", 7000));  
@@ -28,6 +37,12 @@ import redis.clients.jedis.JedisCluster;
 	        jedisClusterNodes.add(new HostAndPort("192.168.2.201", 7005));          
 	        JedisCluster jc = new JedisCluster(jedisClusterNodes); 
 	        jc.set("test1", "test11122----");
+	        */
+//			ICacheManager redis=new RedisClusterCache();
+			User u=new User();
+			u.setNickname("222");
+			u.setState(1);
+			redisClusterCache.Set("u", u);
 			return "index";
 		}
 		
