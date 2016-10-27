@@ -10,7 +10,7 @@
     <!-- 引入jdbc配置文件 -->
     <context:property-placeholder location="classpath:conf/jdbc.properties,classpath:conf/config.properties"/>
     
-    
+    <!-- redis群集服务器配置 -->
     <bean id="redisClusterHelper" class="cn.springmvc.common.RedisClusterHelper" scope="singleton">
   	<property name="hostAndPort">
   		<list>

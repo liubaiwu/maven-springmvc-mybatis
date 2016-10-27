@@ -1,6 +1,7 @@
 package cn.springmvc.controller;
 
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,9 +41,11 @@ import redis.clients.jedis.JedisCluster;
 	        */
 //			ICacheManager redis=new RedisClusterCache();
 			User u=new User();
-			u.setNickname("222");
+			String s="222"+ new Random().nextDouble();
+			u.setNickname(s);
 			u.setState(1);
-			redisClusterCache.Set("u", u);
+			redisClusterCache.Set(s, u);
+			System.out.print(s);
 			return "index";
 		}
 		

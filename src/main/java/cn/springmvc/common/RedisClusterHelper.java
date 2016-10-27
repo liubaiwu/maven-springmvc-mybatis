@@ -18,7 +18,7 @@ import redis.clients.jedis.JedisCluster;
  * @author Administrator
  *
  */
-@Service
+
 public class RedisClusterHelper {
 
 	private static Lock lock = new ReentrantLock();// 锁对象 
