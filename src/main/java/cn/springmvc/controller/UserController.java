@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import cn.springmvc.common.ICacheManager;
 import cn.springmvc.common.RedisClusterCache;
 import cn.springmvc.model.User;
+import cn.springmvc.service.UserService;
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.JedisCluster;
 
@@ -23,6 +24,8 @@ import redis.clients.jedis.JedisCluster;
 		@Autowired()
 		RedisClusterCache redisClusterCache;
 		
+		@Autowired()
+		UserService user;
 		
 		@RequestMapping("index.do")
 		public String index(){
@@ -44,6 +47,9 @@ import redis.clients.jedis.JedisCluster;
 			String s="222"+ new Random().nextDouble();
 			u.setNickname(s);
 			u.setState(1);
+			
+			user.insertUser(u);
+			
 			redisClusterCache.Set(s, u);
 			System.out.print(s);
 			return "index";
